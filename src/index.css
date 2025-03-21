@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+/* Styles personnalisés */
+video::-webkit-media-controls-panel {
+  background-image: linear-gradient(to bottom, #fff, #e0f2fe);
+}
+
+video::-webkit-media-controls-play-button {
+  @apply bg-sky-500 rounded-full p-3;
+}
+
+video::-webkit-media-controls-timeline {
+  @apply bg-sky-100 rounded-full;
+}
