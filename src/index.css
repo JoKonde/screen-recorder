@@ -2,24 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Correction des styles du lecteur vidéo */
+video {
+  @apply w-full h-full;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out;
-}
-
-/* Styles personnalisés */
 video::-webkit-media-controls-panel {
-  background-image: linear-gradient(to bottom, #fff, #e0f2fe);
+  background-image: none !important;
+  @apply bg-white/90 backdrop-blur-sm;
 }
 
-video::-webkit-media-controls-play-button {
-  @apply bg-sky-500 rounded-full p-3;
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-mute-button {
+  @apply bg-sky-500 rounded-full p-2 hover:bg-sky-600 transition-colors;
 }
 
 video::-webkit-media-controls-timeline {
-  @apply bg-sky-100 rounded-full;
+  @apply bg-sky-100 rounded-full mx-2;
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+  @apply text-sky-700 font-medium;
+}
+
+/* Animation simplifiée */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
